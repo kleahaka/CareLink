@@ -21,7 +21,6 @@ public class KerkeseNdihmeService {
         return dao.create(k);
     }
 
-    // KP4, KP10, KP17 – Listim njoftimesh
     public List<KerkeseNdihme> listRequestsForUser(int imoshuarId) throws SQLException {
         return dao.findAll().stream()
                 .filter(k -> k.getImoshuarId() != null && k.getImoshuarId() == imoshuarId)
@@ -34,7 +33,6 @@ public class KerkeseNdihmeService {
                 .collect(Collectors.toList());
     }
 
-    // KP11 – Pranim ose refuzim kërkese
     public KerkeseNdihme updateStatus(int requestId, int statusId) throws SQLException {
         Optional<KerkeseNdihme> k = dao.findById(requestId);
         if (k.isPresent()) {
