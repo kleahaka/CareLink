@@ -18,7 +18,7 @@ public class FamiljarService {
         return dao.create(f);
     }
 
-    //koment
+    //komenti
     public Familjar linkToElder(Familjar f) throws SQLException{
         return dao.create(f);
     }
