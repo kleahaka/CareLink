@@ -26,7 +26,7 @@ public class FamiljarService {
     public List <Familjar> listAll() throws SQLException{
         return dao.findAll();
     }
-
+//
     public Optional <Familjar> getById(int id) throws SQLException{
         return dao.findById(id);
     }
