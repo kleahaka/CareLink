@@ -34,5 +34,8 @@ build/
 ### VS Code ###
 .vscode/
 
+### InteliiJ IDEA ###
+.idea/
+
 ### Mac OS ###
 .DS_Store

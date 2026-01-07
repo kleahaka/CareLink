@@ -35,7 +35,6 @@ public class FamiljarMoshuarService {
         return dao.update(fm);
     }
 
-    // Fshin një lidhje sipas familjarId dhe imoshuarId
     public void delete(int familjarId, int imoshuarId) throws SQLException {
         dao.delete(familjarId, imoshuarId);
     }
