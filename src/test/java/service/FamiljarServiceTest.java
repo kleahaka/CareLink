@@ -44,4 +44,12 @@ public class FamiljarServiceTest extends DatabaseTestBase {
         service.delete(id);
         assertTrue(service.getById(id).isEmpty());
     }
+    @Test
+    public void create_via_service_is_covered() throws SQLException {
+        Familjar f = new Familjar();
+        f.setKontakt("k");
+
+        Familjar created = service.create(f);
+        assertNotNull(created);
+    }
 }

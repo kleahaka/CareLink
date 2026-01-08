@@ -112,4 +112,16 @@ public class UserServiceTest extends DatabaseTestBase {
         service.deleteUser(id);
         assertTrue(service.getUserById(id).isEmpty());
     }
+
+    @Test
+    public void login_returns_empty_when_email_not_found() throws SQLException {
+        Optional<User> login = service.login("missing@example.com", "pw");
+        assertTrue(login.isEmpty()); // mbulon degën userOpt.isPresent() = false
+    }
+
+    @Test
+    public void verifyUser_returns_empty_when_user_missing() throws SQLException {
+        Optional<User> verified = service.verifyUser(999999);
+        assertTrue(verified.isEmpty()); // mbulon degën else/return empty
+    }
 }

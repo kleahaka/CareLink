@@ -44,4 +44,12 @@ public class IMoshuarServiceTest extends DatabaseTestBase {
         service.delete(id);
         assertTrue(service.findById(id).isEmpty());
     }
+    @Test
+    public void create_via_service_is_covered() throws SQLException {
+        IMoshuar i = new IMoshuar();
+        i.setAdresa("Addr");
+
+        IMoshuar created = service.create(i);
+        assertNotNull(created);
+    }
 }

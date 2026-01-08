@@ -44,4 +44,13 @@ public class RaportServiceTest extends DatabaseTestBase {
         service.deleteReport(r.getRaportId());
         assertTrue(service.getReport(r.getRaportId()).isEmpty());
     }
+    @Test
+    public void createReport_via_service_is_covered() throws SQLException {
+        Raport r = new Raport();
+        r.setRezultati("ok");
+        r.setDataRaportit(java.time.LocalDate.now());
+
+        Raport created = service.createReport(r);
+        assertNotNull(created);
+    }
 }

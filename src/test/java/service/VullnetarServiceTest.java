@@ -49,4 +49,32 @@ public class VullnetarServiceTest extends DatabaseTestBase {
         Optional<Vullnetar> login = service.login(9999);
         assertTrue(login.isEmpty());
     }
+    @Test
+    public void login_ignores_records_with_null_userId() throws SQLException {
+        // krijo vullnetar me userId NULL
+        Vullnetar v = new Vullnetar();
+        v.setUserId(null);
+        dao.create(v);
+
+        Optional<Vullnetar> login = service.login(55);
+        assertTrue(login.isEmpty()); // mbulon degën v.getUserId() != null = false
+    }
+
+    @Test
+    public void login_returns_empty_when_userId_does_not_match() throws SQLException {
+        Vullnetar v = new Vullnetar();
+        v.setUserId(111);
+        dao.create(v);
+
+        Optional<Vullnetar> login = service.login(222);
+        assertTrue(login.isEmpty()); // mbulon degën: userId != null = true, por == userId = false
+    }
+    @Test
+    public void create_via_service_is_covered() throws SQLException {
+        Vullnetar v = new Vullnetar();
+        v.setUserId(55);
+
+        Vullnetar created = service.create(v);
+        assertNotNull(created);
+    }
 }
