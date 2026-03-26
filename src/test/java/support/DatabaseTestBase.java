@@ -26,12 +26,11 @@ public abstract class DatabaseTestBase {
                 s.execute("CREATE TABLE IF NOT EXISTS roli (roliId INT AUTO_INCREMENT PRIMARY KEY, emri VARCHAR(255))");
                 s.execute("CREATE TABLE IF NOT EXISTS statusi (statusiId INT AUTO_INCREMENT PRIMARY KEY, emri VARCHAR(255))");
 
-                // avoid reserved name USER by using app_user
                 s.execute("CREATE TABLE IF NOT EXISTS app_user (userid INT AUTO_INCREMENT PRIMARY KEY, emri VARCHAR(255), mbiemri VARCHAR(255), email VARCHAR(255), password VARCHAR(255), roliId INT, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)");
 
                 s.execute("CREATE TABLE IF NOT EXISTS familjar (familjarId INT AUTO_INCREMENT PRIMARY KEY, lidhja_familjare VARCHAR(255), kontakt VARCHAR(255), userid INT)");
 
-                // match DAO table/column names
+                
                 s.execute("CREATE TABLE IF NOT EXISTS i_moshuar (imoshuarId INT AUTO_INCREMENT PRIMARY KEY, mosha INT, adresa VARCHAR(255), kontakt_emergjence VARCHAR(255), userid INT)");
 
                 s.execute("CREATE TABLE IF NOT EXISTS vullnetar (vullnetarId INT AUTO_INCREMENT PRIMARY KEY, zoni_sherbimit VARCHAR(255), disponueshmeria VARCHAR(255), userid INT)");
